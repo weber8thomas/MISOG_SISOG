@@ -1,3 +1,4 @@
+# base_directory: /gstock/GeneIso/
 base_directory: TO_CHANGE
 External:
   raw_refseq: data/External/RefSeq_latest.gff.gz
