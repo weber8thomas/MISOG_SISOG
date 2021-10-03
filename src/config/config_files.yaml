@@ -1,36 +1,16 @@
-base_directory: /gstock/GeneIso/data/
-1_GENOMICS:
-  External:
-    #raw_refseq37: GCF_000001405.25_GRCh37.p13_genomic.gff.gz
-    raw_refseq: /gstock/biolo_datasets/refseq/2021/RefSeq_latest.gff.gz
-    biomart: biomart.txt.gz
-    biomart_tmp: OTHERS/biomart_refseq_ensembl_hgnc.txt.gz
-    biomart_37: biomart_37.txt.gz
-  TMP:
-    tmp_refseq_chroms: TMP/refseq_chroms.parquet
-    tmp_refseq_pc_genes: TMP/refseq_pc_genes.parquet
-    tmp_refseq_mrnas: TMP/refseq_mrnas.parquet
-    tmp_refseq_exons: TMP/refseq_exons.parquet
-    tmp_refseq_introns: TMP/refseq_introns.parquet
-    tmp_refseq_cds: TMP/refseq_cds.parquet
-    tmp_refseq_exons_filtered: TMP/refseq_exons_filtered.parquet
-    tmp_refseq_cds_filtered: TMP/refseq_cds_filtered_corrected.parquet
-    tmp_refseq_concat_exons_cds_filtered: TMP/refseq_cds_exons_concat_filtered.parquet
-
-  Final:
-    refseq_processed: refseq_38_processed.parquet
-    refseq_cds_with_variable: refseq_38_processed_cds_variable.parquet
-    refseq_cds_without_variable: refseq_38_processed_cds.parquet
-    refseq_miso_utrs: refseq_38_processed_utrs_analysis.parquet
-    refseq_introns_plot: refseq_38_introns_plot.parquet
-    refseq_introns_exons_max: refseq_38_introns_exons_max.parquet
-    refseq_exons_max: refseq_38_exons_max.parquet
-    refseq_introns_max: refseq_38_introns_max.parquet
-    refseq_genes_processed_miso_siso: refseq_38_genes_processed_miso_siso.parquet
-    refseq_genes_processed_miso_siso37: refseq_37_genes_processed_miso_siso.parquet
-  Figures_data:
-    exons_stats_before_correction: /gstock/GeneIso/clean/FIGURES/1_ISOFORMS/exons_intrinseq_properties_before_correction.csv.gz
-    exons_stats_after_correction: /gstock/GeneIso/clean/FIGURES/1_ISOFORMS/exons_intrinseq_properties_after_correction.csv.gz
-    mrna_distribution_before_correction: /gstock/GeneIso/clean/FIGURES/1_ISOFORMS/mrna_distribution_before_correction.xlsx
-    mrna_distribution_after_correction: /gstock/GeneIso/clean/FIGURES/1_ISOFORMS/mrna_distribution_after_correction.xlsx
-    venn_utrs: /gstock/GeneIso/clean/FIGURES/1_ISOFORMS/venn_utrs.xlsx
+base_directory: TO_CHANGE
+External:
+  raw_refseq: data/External/RefSeq_latest.gff.gz
+TMP:
+  tmp_refseq_chroms: data/TMP/refseq_chroms.parquet
+  tmp_refseq_pc_genes: data/TMP/refseq_pc_genes.parquet
+  tmp_refseq_mrnas: data/TMP/refseq_mrnas.parquet
+  tmp_refseq_exons: data/TMP/refseq_exons.parquet
+  tmp_refseq_cds: data/TMP/refseq_cds.parquet
+Final:
+  misog_sisog_exons_ter: data/Final/misog_sisog_exons_ter.parquet
+  misog_sisog_introns: data/Final/misog_sisog_introns.parquet
+Figures:
+  Fig2: Figures/Fig2.png
+  FigS1: Figures/FigS1.png
+  FigS2: Figures/FigS2.png

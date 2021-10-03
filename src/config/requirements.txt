@@ -1,0 +1,9 @@
+pandas
+scipy
+numpy
+tqdm
+pyyaml
+pandarallel
+matplotlib
+seaborn
+statannot
