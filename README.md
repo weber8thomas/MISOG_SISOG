@@ -1,6 +1,6 @@
-# MISOG VS SISOG Analysis
+# Does the 5’ region of human protein-coding genes contains the blueprints for alternative splicing?
 
-In this repository, you will find all the developped scripts and tools used to reperformed the MISOG VS SISOG analysis.
+In this repository, you will find all the developped scripts and tools used to reperformed the multiple transcript isoform genes (MISOG) VS single transcript isoform genes (SISOG) analysis.
 
 ## Environment & requirements
 
