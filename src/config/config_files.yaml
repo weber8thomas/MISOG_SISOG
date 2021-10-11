@@ -1,5 +1,5 @@
-# base_directory: /gstock/GeneIso/
-base_directory: TO_CHANGE
+base_directory: /gstock/GeneIso/
+# base_directory: TO_CHANGE
 External:
   raw_refseq: data/External/RefSeq_latest.gff.gz
 TMP:
@@ -12,6 +12,7 @@ Final:
   misog_sisog_exons_ter: data/Final/misog_sisog_exons_ter.parquet
   misog_sisog_introns: data/Final/misog_sisog_introns.parquet
 Figures:
-  Fig2: Figures/Fig2.png
+  Fig2: Figures/Figure2.png
   FigS1: Figures/FigS1.png
   FigS2: Figures/FigS2.png
+  FigS3: Figures/FigS3.png
