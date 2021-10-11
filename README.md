@@ -1,4 +1,4 @@
-# Does the 5’ region of human protein-coding genes contains the blueprints for alternative splicing?
+# Do 5’ regions of human protein-coding genes contain the blueprints for alternative splicing?
 
 In this repository, you will find all the developped scripts and tools used to reperformed the multiple transcript isoform genes (MISOG) VS single transcript isoform genes (SISOG) analysis.
 
