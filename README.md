@@ -36,6 +36,11 @@ RefSeq used GFF file (GCF_000001405.39) can be retrieved [here](https://ftp.ncbi
 
 The notebook is built to retrieve each XLSX table, each CSV/Apache parquet file and to produce the visualizations present in the manuscript
 
+## Figures & Supplementary Figures
+
+![image info](./Figures/Figure1.png)
+
+
 ## How to cite ?
 
 Coming ...
