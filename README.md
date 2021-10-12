@@ -38,7 +38,9 @@ The notebook is built to retrieve each XLSX table, each CSV/Apache parquet file 
 
 ## Figures & Supplementary Figures
 
-![image info](./Figures/Figure1.png)
+![Figure S1 – Length distribution of gene elements (Intron, Exon, TER and UTR exons) according to ordinal positions.
+All plots represent the length distribution of gene elements according to ordinal position (as illustrated in Fig. S4F). Plots A-D correspond to the first five 5’ elements in the genes (1 up to 5), plots E-H correspond to the last five 3’ elements (-5 to -1). The p-values obtained through Mann-Whitney U tests are displayed above the violin plots. Black p-values correspond to comparisons between MISOG and SISOG while colored p-values represent comparisons between first elements and following ones (MISOG: red, SISOG: blue). Values under each plot represent the numbers of observed elements at the ordinal position for MISOG (red) and SISOG (blue). 
+](./Figures/Figure1.png)
 
 
 ## How to cite ?
