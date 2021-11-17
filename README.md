@@ -42,7 +42,10 @@ RefSeq used GFF file (GCF_000001405.39) can be retrieved [here](https://ftp.ncbi
 
 The notebook is built to retrieve each XLSX table, each CSV/Apache parquet file and to produce the visualizations present in the manuscript
 
-## Figures & Supplementary Figures
+## Figures & Supplementary Materials
+
+All suplementary materials can be found here : 
+[Supplementary_materials.docx](./Figures/Supplementary Materials.docx)
 
 ![Figure1](./Figures/Figure1.png)
 **Figure 1 – MISOG and SISOG archetypal gene architecture.**
