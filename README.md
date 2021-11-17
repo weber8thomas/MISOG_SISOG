@@ -46,7 +46,7 @@ The notebook is built to retrieve each XLSX table, each CSV/Apache parquet file 
 
 All suplementary materials can be found here : 
 
-![Supplementary Materials](./Figures/Supplementary Materials.docx)
+![Supplementary Materials](https://github.com/weber8thomas/MISOG_SISOG/blob/e5e9951e1f49c851176b9161e3cd8cf5f5b18c03/Figures/Supplementary%20Material.docx)
 
 ![Figure1](./Figures/Figure1.png)
 **Figure 1 – MISOG and SISOG archetypal gene architecture.**
