@@ -2,6 +2,7 @@ base_directory: /gstock/GeneIso/
 # base_directory: TO_CHANGE
 External:
   raw_refseq: data/External/RefSeq_latest.gff.gz
+  biomart_ensembl: data/External/ENSEMBL/mart_export.txt.gz
 TMP:
   tmp_refseq_chroms: data/TMP/refseq_chroms.parquet
   tmp_refseq_pc_genes: data/TMP/refseq_pc_genes.parquet
@@ -16,3 +17,11 @@ Figures:
   FigS1: Figures/FigS1.png
   FigS2: Figures/FigS2.png
   FigS3: Figures/FigS3.png
+
+EXPRESSION:
+  base_directory: /gstock/biolo_datasets/variation/benchmark/Databases/GTEX/V8/RNA_Seq_data/
+  External:
+    transcript_reads: GTEx_Analysis_2017-06-05_v8_RSEMv1.3.0_transcript_expected_count.gct.gz
+    transcript_tpm: GTEx_Analysis_2017-06-05_v8_RSEMv1.3.0_transcript_tpm.gct.gz
+  Final:
+    transcript_check: /gstock/EXOTIC/data/EXPRESSION/GTEx_V8_transcript_checking.gct.gz
