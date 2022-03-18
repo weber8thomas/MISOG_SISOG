@@ -22,6 +22,7 @@ Conda environment can be create with the following :
 
 ## External ENSEMBL files were retrieved with BIOMART 
 
+TODO
 
 ## Steps 
 
@@ -30,16 +31,21 @@ Human data processing
 2. src/misog_sisog_analysis_ensembl_gencode.ipynb
 3. src/Stats_and_plots.ipynb
 
+
 Mouse data processing
+
 3. src/download_encode_files.py
 4. src/concat_files_ENCODE.py
 5. src/process_encode_srs.py
 
+
 Orthology analysis
+
 6. src/orthologs.ipynb
 7. src/Stats_ortho.ipynb
 8. src/Visualization_ortho.ipynb
 
 Enrichment analysis
+
 9. src/clustering_enrichment_analysis.ipynb
 
