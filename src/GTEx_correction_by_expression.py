@@ -31,34 +31,7 @@ yaml = yaml.load(open("/home/weber/PycharmProjects/MISOG_SISOG/src/config/config
 class CorrectExpression:
     def __init__(self):
 
-        # if os.path.isfile(path) is False:
-        # * 1 Correction by expression
         gtex_corrected = self.launch(yaml["EXPRESSION"]["Final"]["transcript_check"])
-
-        # # * 2 Load RefSeq & remove genes with transcript identical on CDS
-        # refseq = pd.read_parquet(yaml["1_GENOMICS"]["Final"]["refseq_cds_with_variable"])
-        # utrs = pd.read_parquet(yaml["1_GENOMICS"]["Final"]["refseq_miso_utrs"])
-        # refseq = refseq.loc[~refseq["Gene"].isin(utrs.loc[utrs["Nb_combi"] == 1])]
-
-        # # * 3 Remove unexpressed transcripts & recompute frequencies & usage
-        # refseq_correct_mrnas = self.correct_refseq_by_expression(
-        #     yaml["EXPRESSION"]["Final"]["refseq_corrected_cds_with_variable_test"], refseq, gtex_corrected
-        # )
-        # tmp = refseq_correct_mrnas.explode("mRNA_exons")
-        # print(tmp.Gene.nunique())
-        # print(tmp.mRNA_exons.nunique())
-
-        # self.final_corrected_refseq = self.process_corrected_file(path, refseq_correct_mrnas)
-        # tmp = self.final_corrected_refseq.explode("mRNA_exons")
-        # print(tmp.Gene.nunique())
-        # print(tmp.mRNA_exons.nunique())
-
-        # else:
-        #     self.final_corrected_refseq = pd.read_parquet(path)
-        #     tmp = self.final_corrected_refseq.explode("mRNA_exons")
-        #     print(tmp.Gene.nunique())
-        #     print(tmp.mRNA_exons.nunique())
-        #     print(self.final_corrected_refseq)
 
     def launch(self, path):
 
@@ -100,20 +73,7 @@ class CorrectExpression:
             final_df_list = list()
             for df in tqdm(pd.read_csv(filepath, compression="gzip", sep="\t", skiprows=2, chunksize=1000)):
 
-                # # LOAD FILE
-                # df = pd.read_csv(
-                #     filepath,
-                #     compression="gzip",
-                #     sep="\t",
-                #     skiprows=2,
-                #     # nrows=1000,
-                # )
-
                 df["gene_id"] = df["gene_id"].apply(lambda r: r.split(".")[0])
-
-                # MERGE WITH BIOMART TO HAVE GENE SYMBOLS
-                # biomart_grch37 = self.load_biomart(biomart_path)
-                # df = pd.merge(biomart_grch37, df, on="gene_id")
 
                 # CUTOFFS
                 cutoff_reads = 6
@@ -143,16 +103,12 @@ class CorrectExpression:
                 final_df_list.append(df[list(df.columns)[:2] + list(df.columns)[-2:]])
 
             # OUTPUT COMPLETE & LITE
-            # df.to_parquet(o_file, index=False)
             final_df = pd.concat(final_df_list)
-            # df = df[list(df.columns)[:2] + list(df.columns)[-2:]]
             print(final_df)
-            # exit()
             final_df.to_csv(o_file_lite, index=False, compression="gzip", sep="\t")
         else:
 
             print("# Files exist ✓")
-
             final_df = pd.read_csv(o_file_lite, compression="gzip", sep="\t")
             print(final_df)
         return final_df
@@ -202,5 +158,3 @@ class CorrectExpression:
 
 if __name__ == "__main__":
     c = CorrectExpression()
-    # df = c.final_corrected_refseq
-    # print(df.loc[df["Share"] == True])
