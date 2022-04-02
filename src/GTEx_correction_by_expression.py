@@ -1,11 +1,12 @@
 import math
-import os
+import os, sys
+
+sys.path.append(".")
 import pandas as pd
 import gzip
 
 pd.options.mode.chained_assignment = None  # default='warn'
 import multiprocessing
-import parmap
 import numpy as np
 import collections
 from tqdm import tqdm
@@ -25,7 +26,9 @@ pandarallel.initialize(nb_workers=30, progress_bar=True)
 ## YAML FILES CONFIG
 import yaml
 
-yaml = yaml.load(open("/home/weber/PycharmProjects/MISOG_SISOG/src/config/config_files.yaml"), Loader=yaml.FullLoader)
+# TODO : change config system, initially based on hard coded path
+# yaml = yaml.load(open("src/config/config_files.yaml"), Loader=yaml.FullLoader)
+yaml = yaml.load(open(sys.argv[1]), Loader=yaml.FullLoader)
 
 
 class CorrectExpression:

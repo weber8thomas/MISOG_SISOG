@@ -1,22 +1,8 @@
 base_directory: /gstock/GeneIso/
 # base_directory: TO_CHANGE
 External:
-  raw_refseq: data/External/RefSeq_latest.gff.gz
   biomart_ensembl: data/External/ENSEMBL/mart_export.txt.gz
-TMP:
-  tmp_refseq_chroms: data/TMP/refseq_chroms.parquet
-  tmp_refseq_pc_genes: data/TMP/refseq_pc_genes.parquet
-  tmp_refseq_mrnas: data/TMP/refseq_mrnas.parquet
-  tmp_refseq_exons: data/TMP/refseq_exons.parquet
-  tmp_refseq_cds: data/TMP/refseq_cds.parquet
-Final:
-  misog_sisog_exons_ter: data/Final/misog_sisog_exons_ter.parquet
-  misog_sisog_introns: data/Final/misog_sisog_introns.parquet
-Figures:
-  Fig2: Figures/Figure2.png
-  FigS1: Figures/FigS1.png
-  FigS2: Figures/FigS2.png
-  FigS3: Figures/FigS3.png
+  biomart_ensembl_exons: data/External/ENSEMBL/mart_export_exon_38.txt.gz
 
 EXPRESSION:
   base_directory: /gstock/biolo_datasets/variation/benchmark/Databases/GTEX/V8/RNA_Seq_data/
