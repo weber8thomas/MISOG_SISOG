@@ -38,6 +38,8 @@ Location on CSTB server : `/gstock/biolo_datasets/variation/benchmark/Databases/
 
 ### ENSEMBL files were retrieved with BIOMART 
 
+#### Human level
+
 Ensembl gene/mRNA/exons definitions were retrieved through [BIOMART](https://www.ensembl.org/biomart/martview) in 2 times.
 
 1. First file for all human genes/mRNA with the following criteria : 
@@ -87,7 +89,7 @@ Ensembl gene/mRNA/exons definitions were retrieved through [BIOMART](https://www
     - Gene type: protein_coding
     - Transcript type: protein_coding
     - GENCODE basic annotation: Only
-- **Attributes**
+- **Attributes (Structure category)** 
   - GENE properties:
     - Gene stable ID
     - Transcript stable ID
@@ -123,6 +125,71 @@ Ensembl gene/mRNA/exons definitions were retrieved through [BIOMART](https://www
 File 1 (gene/mRNA level) local path : `/gstock/GeneIso/data/External/ENSEMBL/mart_export.txt.gz`
 
 File 2 (exons level) local path : `/gstock/GeneIso/data/External/ENSEMBL/mart_export_exons.txt.gz`
+
+#### Orthologs
+
+Orthologs were retrieved in BIOMART with the following criteria : 
+
+- **Database :** Ensembl Genes 105
+- **Dataset :** Human genes (GRCh38.p13)
+- **Filters:**
+    - Gene type: protein_coding
+    - Transcript type: protein_coding
+    - GENCODE basic annotation: Only
+- **Attributes (Homologues category)**
+  - GENE properties:
+      - Gene stable ID
+      - Gene name
+      - Source of gene name
+  - ORTHOLOGUES (K-O) : 
+    - Mouse orthologues:
+      - ***ALL*** properties 
+
+- File location : `/gstock/GeneIso/data/External/ENSEMBL/mmusculus_orthologs.txt.gz`
+
+#### Mouse level
+
+To retrieve genes/mRNA/exons from *Mus Musculus*, same procedure was done as the one for [Human level](####Human-level) but with the dataset : **Mouse genes (GRCm39)**.
+
+### ENCODE mouse expression data
+
+Mouse expression data were retrieved through ENCODE project.
+
+Following ENCODE parameters were used to retrieve files :
+
+- *searchTerm=transcript+quantification*
+- *type=File*
+- *file_format=tsv*
+- *assembly=mm10*
+- *status=released*
+- *audit.NOT_COMPLIANT.category!=insufficient+read+depth*
+- *audit.WARNING.category!=low+replicate+concordance*
+- *audit.WARNING.category!=low+read+depth*
+- *audit.WARNING.category!=missing+analysis_step_run*
+
+Manual observation of files structure according to nb of cols gave the following analysis:
+
+- 123 - 12 cols ⇒ LRS
+- 291 - 17 cols ⇒ Gene TPM level ⇒ not usable
+- 730 - 19 cols ⇒ Gene TPM level ⇒ not usable
+- 535 - 5 cols ⇒ SRS with TPM at transcript level
+    - Prot coding
+    - Same cutoff than GTEx
+
+Only SRS with TPM level were finally used, with same filtering criteria than GTEx (see GTEx part).
+
+
+
+Download list : `/gstock/biolo_datasets/ENCODE/file_report_2022_3_2_10h_59m.tsv`
+
+Associate URL query in the file header : 
+```
+https://www.encodeproject.org/report/?type=File&searchTerm=transcript+quantification&output_type=transcript+quantifications&file_format=tsv&assembly=mm10&status=released&award.project=ENCODE&lab.title=ENCODE+Processing+Pipeline&audit.NOT_COMPLIANT.category%21=insufficient+read+depth&audit.WARNING.category%21=low+read+depth&audit.WARNING.category%21=low+replicate+concordance&field=%40id&field=dataset&field=href&limit=all
+```
+
+Expression files downloaded are located here : `/gstock/biolo_datasets/ENCODE/DL`
+
+
 
 ## Steps 
 
@@ -161,18 +228,28 @@ Intermediate files reused for make plots & statistics
 
 Mouse data processing
 
-3. src/download_encode_files.py
-4. src/concat_files_ENCODE.py
-5. src/process_encode_srs.py
+4. src/download_encode_files.py
 
+Used file as argument : `/gstock/biolo_datasets/ENCODE/file_report_2022_3_2_10h_59m.tsv`
+
+5. src/concat_files_ENCODE.py
+
+Concat SRS file into a single dataframe.
+
+6. src/process_encode_srs.py
+
+Identification of transcripts that respect expression filters.
 
 Orthology analysis
 
-6. src/orthologs.ipynb
-7. src/Stats_ortho.ipynb
-8. src/Visualization_ortho.ipynb
+7. src/orthologs.ipynb
+
+Identification of closest orthologs in MM
+
+8. src/Stats_ortho.ipynb
+9. src/Visualization_ortho.ipynb
 
 Enrichment analysis
 
-9. src/clustering_enrichment_analysis.ipynb
+10. src/clustering_enrichment_analysis.ipynb
 
